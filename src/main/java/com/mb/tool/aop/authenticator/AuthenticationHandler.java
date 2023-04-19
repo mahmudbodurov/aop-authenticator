@@ -3,7 +3,6 @@ package com.mb.tool.aop.authenticator;
 import com.mb.tool.aop.authenticator.annotations.AuthenticationRequired;
 import com.mb.tool.aop.authenticator.annotations.AuthenticationUser;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

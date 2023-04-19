@@ -1,29 +1,53 @@
-
 # Project Title
-Spring AOP logger
 
+Spring AOP logger
 
 ## Acknowledgements
 
- - [Spring AOP](https://docs.spring.io/spring-framework/docs/2.5.x/reference/aop.html)
+- [Spring AOP](https://docs.spring.io/spring-framework/docs/2.5.x/reference/aop.html)
 
 ## Authors
 
 - [Mahmud Bodurov](https://www.github.com/Mahmud989)
 
-
 ## Features
 
 - Dynamic endpoint auth
 
+## 🚀 About
 
-## 🚀 About 
 Auth tool uses spring aop
 
 ## Publishing
- ``` ./gradlew clean build publish  -PrepoPassword=  -PrepoUser=```
+
+``` ./gradlew clean build publish -PrepoPassword= -PrepoUser=```
 
 ## Usage/Examples
+
+### Usage in gradle project
+
+```groovy 
+repositories {
+    maven {
+        url "https://nexus.letsecure.az/repository/maven-public/"
+    }
+}
+
+dependencies {
+    implementation 'com.mb.tool:aop-authenticator:1.0.1'
+}
+```
+
+### Maven
+
+```xml
+
+<dependency>
+    <groupId>com.mb.tool</groupId>
+    <artifactId>aop-authenticator</artifactId>
+    <version>1.0.1</version>
+</dependency>
+```
 
 ```java
 
@@ -53,18 +77,18 @@ public class CustomAuthenticationResolver implements AuthenticationResolver {
 public class ExampleController {
 
     private final ExampleService service;
-    
+
     @GetMapping
     @AuthenticationRequired
-    public List<Example> getExamples(@AuthenticationUser User user){
+    public List<Example> getExamples(@AuthenticationUser User user) {
         return service.getExamples(user);
     }
 }
 ```
 
-
 ## Tech Stack
- Aspectj, Spring Boot, Spring AOP
+
+Aspectj, Spring Boot, Spring AOP
 
 
 
