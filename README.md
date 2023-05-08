@@ -1,6 +1,6 @@
 # Project Title
 
-Spring AOP logger
+Spring AOP based authenticator
 
 ## Acknowledgements
 
