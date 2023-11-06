@@ -2,6 +2,7 @@ package com.mb.tool.aop.authenticator;
 
 import com.mb.tool.aop.authenticator.annotations.AuthenticationRequired;
 import com.mb.tool.aop.authenticator.annotations.AuthenticationUser;
+import com.mb.tool.aop.authenticator.enums.AuthenticationType;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -32,9 +33,14 @@ public class AuthenticationHandler {
         var signature = ((MethodSignature) proceedingJoinPoint.getSignature());
         Object[] args = proceedingJoinPoint.getArgs();
         Parameter[] parameters = signature.getMethod().getParameters();
-        String authHeader = request.getHeader(authenticationRequired.authHeader());
-        var user = authenticationResolver.authenticate(authHeader);
-        setUserToMethod(parameters, args, user);
+        Object object;
+        if (authenticationRequired.type() == AuthenticationType.AUTHORIZATION) {
+            String authHeader = request.getHeader(authenticationRequired.authHeader());
+            object = authenticationResolver.authenticate(authHeader);
+        }else {
+            object = authenticationResolver.authenticate(request);
+        }
+        setUserToMethod(parameters, args, object);
         return proceedingJoinPoint.proceed(args);
     }
 

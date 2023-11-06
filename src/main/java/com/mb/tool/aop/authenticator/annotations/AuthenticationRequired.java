@@ -1,5 +1,7 @@
 package com.mb.tool.aop.authenticator.annotations;
 
+import com.mb.tool.aop.authenticator.enums.AuthenticationType;
+
 import java.lang.annotation.*;
 
 @Inherited
@@ -7,4 +9,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AuthenticationRequired {
     String authHeader() default "Authorization";
+
+    AuthenticationType type() default AuthenticationType.AUTHORIZATION;
 }
