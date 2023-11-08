@@ -7,9 +7,15 @@ import org.springframework.web.context.request.NativeWebRequest;
 import javax.servlet.http.HttpServletRequest;
 
 public interface AuthenticationResolver {
-    Object authenticate(String authorization);
+    default Object authenticate(String authorization) {
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
 
-    Object authenticate(HttpServletRequest request);
+    default Object authenticate(HttpServletRequest request) {
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
 
-    Object authenticate(MethodParameter parameter, NativeWebRequest webRequest) throws Exception;
+    default Object authenticate(MethodParameter parameter, NativeWebRequest webRequest) throws Exception {
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
 }
