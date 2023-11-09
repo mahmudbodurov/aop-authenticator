@@ -9,7 +9,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Parameter;
 
 
-@Component
 @Aspect
 @RequiredArgsConstructor
 public class AuthenticationHandler {
@@ -37,7 +35,7 @@ public class AuthenticationHandler {
         if (authenticationRequired.type() == AuthenticationType.AUTHORIZATION) {
             String authHeader = request.getHeader(authenticationRequired.authHeader());
             object = authenticationResolver.authenticate(authHeader);
-        }else {
+        } else {
             object = authenticationResolver.authenticate(request);
         }
         setUserToMethod(parameters, args, object);
