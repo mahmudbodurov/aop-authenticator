@@ -1,10 +1,10 @@
 package com.mb.tool.aop.authenticator;
 
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import javax.servlet.http.HttpServletRequest;
 
 public interface AuthenticationResolver {
     default Object authenticate(String authorization) {
