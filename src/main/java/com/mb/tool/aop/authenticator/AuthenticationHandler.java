@@ -3,7 +3,7 @@ package com.mb.tool.aop.authenticator;
 import com.mb.tool.aop.authenticator.annotations.AuthenticationRequired;
 import com.mb.tool.aop.authenticator.annotations.AuthenticationUser;
 import com.mb.tool.aop.authenticator.enums.AuthenticationType;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

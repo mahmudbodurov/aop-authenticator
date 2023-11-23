@@ -20,6 +20,6 @@ public class AuthenticationUserMethodHandler implements HandlerMethodArgumentRes
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-        return resolver.authenticate(parameter, webRequest);
+        return resolver.authenticate(parameter, mavContainer, webRequest, binderFactory);
     }
 }

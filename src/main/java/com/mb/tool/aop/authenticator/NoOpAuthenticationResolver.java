@@ -1,8 +1,11 @@
 package com.mb.tool.aop.authenticator;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;
+import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.method.support.ModelAndViewContainer;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 public class NoOpAuthenticationResolver implements AuthenticationResolver {
@@ -17,7 +20,7 @@ public class NoOpAuthenticationResolver implements AuthenticationResolver {
     }
 
     @Override
-    public Object authenticate(MethodParameter parameter, NativeWebRequest webRequest) {
+    public Object authenticate(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
         return new Object();
     }
 }

@@ -1,9 +1,12 @@
 package com.mb.tool.aop.authenticator;
 
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;
+import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.method.support.ModelAndViewContainer;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 public interface AuthenticationResolver {
@@ -15,7 +18,7 @@ public interface AuthenticationResolver {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    default Object authenticate(MethodParameter parameter, NativeWebRequest webRequest) throws Exception {
+    default Object authenticate(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 }
