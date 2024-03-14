@@ -10,5 +10,5 @@ import java.lang.annotation.*;
 public @interface AuthenticationRequired {
     String authHeader() default "Authorization";
 
-    AuthenticationType type() default AuthenticationType.AUTHORIZATION;
+    AuthenticationType type() default AuthenticationType.GATEWAY;
 }

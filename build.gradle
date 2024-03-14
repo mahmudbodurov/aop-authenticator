@@ -1,15 +1,15 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
+    id 'java'
     id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
     id 'maven-publish'
 
 }
 group = 'com.mb.tool'
-version '1.0.3'
-sourceCompatibility = '11'
+version '1.0.11'
+sourceCompatibility = '17'
 
 
 configurations {
@@ -45,4 +45,10 @@ dependencies {
     implementation 'org.springframework:spring-aspects:5.3.20'
     compileOnly 'org.springdoc:springdoc-openapi-ui:1.6.9'
 
+}
+
+jar {
+    from(project.rootDir) {
+        include 'LICENSE'
+    }
 }

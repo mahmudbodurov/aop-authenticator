@@ -18,11 +18,4 @@ public class AuthenticationResolverConfig {
     public AuthenticationResolver authenticationResolver() {
         return new NoOpAuthenticationResolver();
     }
-
-    @Bean
-    @ConditionalOnMissingBean()
-    public AuthenticationHandler authenticationHandler(AuthenticationResolver authenticationResolver) {
-        return new AuthenticationHandler(authenticationResolver);
-    }
-
 }
